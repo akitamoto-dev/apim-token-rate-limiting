@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimSku": { "value": "Basicv2" },
+    "aiServicesConfig": {
+      "value": [
+        { "name": "foundry1", "location": "japaneast", "priority": 1 }
+      ]
+    },
+    "modelsConfig": {
+      "value": [
+        { "name": "gpt-4.1-mini", "publisher": "OpenAI", "version": "2025-04-14", "sku": "GlobalStandard", "capacity": 5 }
+      ]
+    },
+    "apimSubscriptionsConfig": {
+      "value": [
+        { "name": "subscription1", "displayName": "Subscription 1" }
+      ]
+    },
+    "inferenceAPIPath": { "value": "inference" },
+    "inferenceAPIType": { "value": "AzureOpenAI" },
+    "foundryProjectName": { "value": "token-rate-limiting" }
+  }
+}

@@ -1,0 +1,8 @@
+.env
+result.json
+images/
+__pycache__/
+*.log
+capture.config.json
+plan.md
+article-*.md

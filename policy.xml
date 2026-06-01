@@ -1,0 +1,25 @@
+<policies>
+    <inbound>
+        <base />
+        <set-backend-service backend-id="{backend-id}" />
+        <!--
+          サブスクリプション単位 (counter-key) で 1 分あたりのトークン消費を制限する。
+          上限超過時は呼び出し元へ 429 を返す (バックエンドには到達しない)。
+          tokens-per-minute は少ないリクエストで上限到達を観測するため低めに設定している。
+          estimate-prompt-tokens="false" は応答の実トークン数でカウントする設定。
+          remaining-tokens-variable-name で残量を変数に格納し、必要ならヘッダーで返せる。
+        -->
+        <llm-token-limit counter-key="@(context.Subscription.Id)"
+            tokens-per-minute="100" estimate-prompt-tokens="false"
+            remaining-tokens-variable-name="remainingTokens" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
