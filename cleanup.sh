@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # AI Gateway トークンレート制限検証のクリーンアップスクリプト
 # リソースグループ削除 + ソフトデリート対象 (Cognitive Services / APIM) のパージまで実行。
-# 検証・記事レビュー完了後に人間が手動で実行する (HITL の最終ゲート)。
 set -euo pipefail
 
 cd "$(dirname "$0")"
